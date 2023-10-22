@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Leandra Cometti">
+    <meta name="description" content="Cronômetro feito com JavaScript">
+
+    <title>Botão switch</title>
+    
+    <script src="https://kit.fontawesome.com/0b90b34a5d.js" crossorigin="anonymous"></script>
+
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /*classe modo noturno*/
+        .modo_noturno {
+        background-color: #111;
+        color: #fff;
+        }
+        .modo_noturno .titulo {
+        color: blueviolet;
+        }
+        .modo_noturno .container {
+        background-color: rgba(232, 232, 232, 0.2039215686);
+        }
+
+        /*switch dark mode*/
+        .btn_modo-noturno {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        }
+        .btn_modo-noturno i {
+        font-size: 4rem;
+        }
+
+        #checkbox {
+        display: none;
+        }
+
+        .switch {
+        position: relative;
+        background-color: #777;
+        width: 160px;
+        height: 70px;
+        border-radius: 40px;
+        display: flex;
+        align-items: center;
+        padding: 2%;
+        transition: all 0.5s ease-in-out;
+        cursor: pointer;
+        }
+
+        .slider {
+        position: absolute;
+        background-color: #fff;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        transition: all 0.5s ease-in-out;
+        }
+
+        #checkbox:checked ~ .switch {
+        background-color: purple;
+        }
+
+        #checkbox:checked ~ .switch .slider {
+        transform: translateX(80px);
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="btn_modo-noturno">
+        <i class="fa-regular fa-sun"></i>
+
+        <input type="checkbox" id="checkbox" />
+            <label for="checkbox" class="switch">
+                <span class="slider"></span>
+            </label>
+
+        <i class="fa-regular fa-moon"></i>
+    </div>
+
+    <script>
+        //evento de click que altera o modo da página
+        const $body = document.querySelector('body');
+        const $btnModo = document.getElementById('checkbox');
+
+        $btnModo.addEventListener('change', function(){
+            $body.classList.toggle('modo_noturno');
+        });
+    </script>
+</body>
+</html>
